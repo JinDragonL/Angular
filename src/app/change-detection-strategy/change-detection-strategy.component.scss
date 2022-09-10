@@ -1,0 +1,17 @@
+.detection-parent {
+    display: flex;
+    flex-direction: row;
+}
+
+.child1{
+    background-color: #e2eeff;
+}
+.child2{
+    background-color: #f4bbcc;
+}
+
+.child1, .child2 {
+    width:500px;
+    height: 500px;
+}
+

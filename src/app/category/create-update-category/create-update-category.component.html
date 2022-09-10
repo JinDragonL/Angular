@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col">
+        <h4>Category Form</h4>
+        <form [formGroup]="registerFrom" (ngSubmit)="onSubmit()">
+            <div class="col-8">
+              <input type="hidden" class="form-control" id="name" formControlName="id" >
+              <label for="Name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="name">
+              <span class="form-text error-valid" *ngIf="f['name'].errors && f['name'].errors['required']">Please input name.</span>
+            </div>
+            <div class="col-8">
+              <label for="Description" class="form-label">Description</label>
+              <textarea class="form-control" rows="5" formControlName="description"></textarea>
+            </div>
+            <button  class="btn btn-primary" style="margin-top:15px;">Submit</button>
+        </form>
+    </div>
+</div>
+
+

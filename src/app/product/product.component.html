@@ -1,0 +1,23 @@
+<p>product works!</p>
+
+<p>{{ message | lowercase }}</p>
+<p>{{ message | titlecase }}</p>
+
+<p>{{ number | number }}</p>
+
+<p>{{ date | date:"dd/MM/yyyy HH:mm" }}</p>
+
+<p>{{ message | slice: 2:4 }}</p>
+
+
+<p>{{ [1, 5, 10, 78, 100] | slice: 2:4 }}</p>
+
+<p>{{ "" | checkAnimal:"D" }}</p>
+
+<select>
+    <option *ngFor="let item of categories$ | async">{{ item.Name }}</option><br>
+</select>
+
+<button type="buttom" (click)="onGetCategories()" id="btn-onget">Get Category</button> <br><br>
+
+<input type="text" id="txt-input">

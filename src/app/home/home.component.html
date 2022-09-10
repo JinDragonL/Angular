@@ -1,0 +1,12 @@
+<div>
+  <h4>Home Component</h4>
+  <p></p>
+  <input type="text" [(ngModel)]="name"> <br>
+  <button class="btn btn-primary" (click)="onSendMsg()">Send Message</button>
+  <hr>
+  <ng-container *ngIf="isShow">
+    <div>Render sample HTML</div>
+  </ng-container>
+  <hr>
+  <app-authentication [name]="name"></app-authentication>
+</div>

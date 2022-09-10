@@ -1,0 +1,20 @@
+<p>contact works!</p>
+
+
+<ng-container *ngIf="isShow; then templateContact else templateSample">
+
+</ng-container>
+
+<ng-template #templateSample>
+    <div>
+        <h4>TemplateRef</h4>
+        <p>This is sample HTML about template reference</p>
+    </div>
+</ng-template>
+
+<ng-template #templateContact>
+    <div>
+        <h4>Contact</h4>
+        <p>Contact Form</p>
+    </div>
+</ng-template>

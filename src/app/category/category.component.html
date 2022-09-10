@@ -1,0 +1,21 @@
+<h4>Category List</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th><a routerLink="/category/createupdate"><i class="bi bi-plus-lg btn-action"></i></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of categories"> 
+      <td><a [routerLink]="['/category/detail', item.Id]">{{item.Name}}</a></td>
+      <td>{{item.Description}}</td>
+      <td  style="width:70px;">
+        <a [routerLink]="['/category/createupdate', item.Id]"><i class="bi bi-pencil-fill btn-action"></i></a> &nbsp;
+        <a><i class="bi bi-x-lg btn-action"></i></a> 
+      </td>
+    </tr>
+  </tbody>
+</table>
+

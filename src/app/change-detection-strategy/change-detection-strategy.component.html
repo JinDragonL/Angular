@@ -1,0 +1,18 @@
+<p>change-detection-strategy works!</p>
+
+<div>
+    Message: <input (input)="onChangeMessage($event.target)" value="I am Robot" />
+</div> 
+<hr>
+<p>{{ cat | json }}</p>
+<button (click)="onChangeAge()">Change Age</button>
+<button (click)="onChangeCat()">Change Cat</button>
+
+<div class="detection-parent">
+    <div class="child1">
+        <app-change-detection-child1 [message]="message" [cat]="cat"></app-change-detection-child1>
+    </div>
+    <div class="child2">
+        <app-change-detection-child2 [message]="message" [cat]="cat"></app-change-detection-child2>
+    </div>
+</div>
