@@ -29,6 +29,9 @@ import { TypescriptComponent } from './typescript/typescript.component';
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { ChangeDetectionChild1Component } from './change-detection-strategy/change-detection-child1/change-detection-child1.component';
 import { ChangeDetectionChild2Component } from './change-detection-strategy/change-detection-child2/change-detection-child2.component';
+import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { LabelModule } from '@progress/kendo-angular-label';
 
 
 @NgModule({
@@ -51,7 +54,8 @@ import { ChangeDetectionChild2Component } from './change-detection-strategy/chan
     TypescriptComponent,
     ChangeDetectionStrategyComponent,
     ChangeDetectionChild1Component,
-    ChangeDetectionChild2Component
+    ChangeDetectionChild2Component,
+    AdvancedFormComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +64,9 @@ import { ChangeDetectionChild2Component } from './change-detection-strategy/chan
     BrowserModule,
     BrowserAnimationsModule,
     AppRouting,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputsModule,
+    LabelModule
   ],
   providers: [
     CategoryService, 

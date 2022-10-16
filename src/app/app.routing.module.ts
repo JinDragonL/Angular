@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule} from '@angular/router';
 import { GetProductResolver } from "src/services/handle-get-product-resolver";
+import { AdvancedFormComponent } from "./advanced-form/advanced-form.component";
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { CategoryDetailComponent } from "./category/category-detail/category-detail.component";
 import { CategoryComponent } from "./category/category.component";
@@ -38,6 +39,7 @@ const appRouter = [
     { path: 'observable',component: ObservableComponent},
     { path: 'observable-2',component: Observable2Component},
     { path: 'detection',component: ChangeDetectionStrategyComponent},
+    { path: 'advance-form',component: AdvancedFormComponent},
     { path: '*', component: HomeComponent},
 ]
 
