@@ -25,13 +25,13 @@ import { Observable2Component } from './observable2/observable2.component';
 import { ScrollRxjsComponent } from './scroll-rxjs/scroll-rxjs.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { GetProductResolver } from 'src/services/handle-get-product-resolver';
-import { TypescriptComponent } from './typescript/typescript.component';
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { ChangeDetectionChild1Component } from './change-detection-strategy/change-detection-child1/change-detection-child1.component';
 import { ChangeDetectionChild2Component } from './change-detection-strategy/change-detection-child2/change-detection-child2.component';
 import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
+import { TypescriptComponent } from './typescript/typescript.component';
 
 
 @NgModule({
@@ -51,11 +51,11 @@ import { LabelModule } from '@progress/kendo-angular-label';
     Observable2Component,
     ScrollRxjsComponent,
     CategoryDetailComponent,
-    TypescriptComponent,
     ChangeDetectionStrategyComponent,
     ChangeDetectionChild1Component,
     ChangeDetectionChild2Component,
-    AdvancedFormComponent
+    AdvancedFormComponent,
+    TypescriptComponent
   ],
   imports: [
     CommonModule,

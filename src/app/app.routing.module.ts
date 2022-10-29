@@ -12,6 +12,7 @@ import { HomeComponent } from "./home/home.component";
 import { ObservableComponent } from "./observable/observable.component";
 import { Observable2Component } from "./observable2/observable2.component";
 import { ProductComponent } from "./product/product.component";
+import { TypescriptComponent } from "./typescript/typescript.component";
 
 const appRouter = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -40,6 +41,7 @@ const appRouter = [
     { path: 'observable-2',component: Observable2Component},
     { path: 'detection',component: ChangeDetectionStrategyComponent},
     { path: 'advance-form',component: AdvancedFormComponent},
+    { path: 'typescript', component: TypescriptComponent},
     { path: '*', component: HomeComponent},
 ]
 
