@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { RouterModule} from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { GetProductResolver } from "src/services/handle-get-product-resolver";
 import { AdvancedFormComponent } from "./advanced-form/advanced-form.component";
 import { AuthenticationComponent } from "./authentication/authentication.component";
@@ -12,9 +12,11 @@ import { HomeComponent } from "./home/home.component";
 import { ObservableComponent } from "./observable/observable.component";
 import { Observable2Component } from "./observable2/observable2.component";
 import { ProductComponent } from "./product/product.component";
+import { TypescriptClassComponent } from "./typescript-class/typescript-class.component";
+import { TypescriptInterfaceComponent } from "./typescript-interface/typescript-interface.component";
 import { TypescriptComponent } from "./typescript/typescript.component";
 
-const appRouter = [
+const appRouter: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: 'home',component: HomeComponent},
     { path: 'category',component: CategoryComponent, 
@@ -42,6 +44,8 @@ const appRouter = [
     { path: 'detection',component: ChangeDetectionStrategyComponent},
     { path: 'advance-form',component: AdvancedFormComponent},
     { path: 'typescript', component: TypescriptComponent},
+    { path: 'typescript2', component: TypescriptInterfaceComponent},
+    { path: 'typescript-class', component: TypescriptClassComponent},
     { path: '*', component: HomeComponent},
 ]
 

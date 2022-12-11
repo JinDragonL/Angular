@@ -85,8 +85,14 @@
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/advance-form">Advanced-Form</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/typescript">Typescript</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Typescript
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="nav-link" routerLinkActive="active" routerLink="/typescript">Types</a>
+              <a class="dropdown-item" routerLinkActive="active" routerLink="/typescript2">Interface - Class</a>
+            </div>
           </li>
           <li class="nav-item">
             <span class="nav-link btn-slider" (click)="onShowSlider()">&#x2630;</span>

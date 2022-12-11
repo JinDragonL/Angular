@@ -32,6 +32,10 @@ import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { TypescriptComponent } from './typescript/typescript.component';
+import { TypescriptInterfaceComponent } from './typescript-interface/typescript-interface.component';
+import { PokemonServiceService } from 'src/services/pokemon-service.service';
+import { YugiohServiceService } from 'src/services/yugioh-service.service';
+import { TypescriptClassComponent } from './typescript-class/typescript-class.component';
 
 
 @NgModule({
@@ -55,7 +59,9 @@ import { TypescriptComponent } from './typescript/typescript.component';
     ChangeDetectionChild1Component,
     ChangeDetectionChild2Component,
     AdvancedFormComponent,
-    TypescriptComponent
+    TypescriptComponent,
+    TypescriptInterfaceComponent,
+    TypescriptClassComponent
   ],
   imports: [
     CommonModule,
@@ -72,10 +78,21 @@ import { TypescriptComponent } from './typescript/typescript.component';
     CategoryService, 
     HomeService, 
     AuthguardService,
-    GetProductResolver
+    GetProductResolver,
+    {
+      provide: 'AnimeCharacter',
+      multi: true,
+      useClass: PokemonServiceService
+    },
+    {
+      provide: 'AnimeCharacter',
+      multi: true,
+      useClass: YugiohServiceService
+    }
     //{ provide: HTTP_INTERCEPTORS, useClass: InterceptorRequest, multi: true }
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
 

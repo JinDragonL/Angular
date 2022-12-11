@@ -1,11 +1,11 @@
 export class CategoryModel {
-    Id:number;
-    Name:string;
-    Description: string;
+    id:number;
+    name:string;
+    description: string;
  
   constructor(id: number, name: string, description:string) {
-    this.Id = id;
-    this.Name = name;
-    this.Description = description
+    this.id = id;
+    this.name = name;
+    this.description = description
   }
 }

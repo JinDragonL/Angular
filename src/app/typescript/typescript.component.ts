@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Payment } from 'src/models/Payment';
 import { DIRECTION } from '../helper/enum';
 
 @Component({
@@ -7,7 +8,7 @@ import { DIRECTION } from '../helper/enum';
   styleUrls: ['./typescript.component.scss']
 })
 
-export class TypescriptComponent implements OnInit {
+export class TypescriptComponent implements OnInit, Payment {
   
   name: string = "I am Robot";
   age: number;
@@ -21,6 +22,10 @@ export class TypescriptComponent implements OnInit {
   action: Action;
 
   constructor() { }
+  key: string;
+  getPaymentByMethod(method: string): void {
+    console.log("Pay by cash");
+  }
 
   ngOnInit(): void {
 

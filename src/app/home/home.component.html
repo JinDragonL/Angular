@@ -1,11 +1,14 @@
 <div>
   <h4>Home Component</h4>
-  <p></p>
+  <p> 
+    <img src="https://localhost:44346/images/DavidRoberts-Portico_TempleOfEdfu_1838.jpg">
+  </p>
   <input type="text" [(ngModel)]="name"> <br>
   <button class="btn btn-primary" (click)="onSendMsg()">Send Message</button>
   <hr>
   <ng-container *ngIf="isShow">
     <div>Render sample HTML</div>
+   
   </ng-container>
   <hr>
   <app-authentication [name]="name"></app-authentication>
