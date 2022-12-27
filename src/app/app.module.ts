@@ -36,6 +36,7 @@ import { TypescriptInterfaceComponent } from './typescript-interface/typescript-
 import { PokemonServiceService } from 'src/services/pokemon-service.service';
 import { YugiohServiceService } from 'src/services/yugioh-service.service';
 import { TypescriptClassComponent } from './typescript-class/typescript-class.component';
+import { TypescriptAbstractComponent } from './typescript-abstract/typescript-abstract.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { TypescriptClassComponent } from './typescript-class/typescript-class.co
     AdvancedFormComponent,
     TypescriptComponent,
     TypescriptInterfaceComponent,
-    TypescriptClassComponent
+    TypescriptClassComponent,
+    TypescriptAbstractComponent
   ],
   imports: [
     CommonModule,
