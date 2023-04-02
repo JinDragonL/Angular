@@ -1,0 +1,19 @@
+<h3>Material Angular UI</h3>
+<div fxLayout="row">
+
+
+  <div class="child-1" fxFlex="1 2 auto">
+    <mat-form-field appearance="fill">
+      <mat-label>Some Cars</mat-label>
+      <mat-select matNativeControl required>
+        <mat-option value="volvo">Volvo</mat-option>
+        <mat-option value="saab">Saab</mat-option>
+        <mat-option value="mercedes">Mercedes</mat-option>
+        <mat-option value="audi">Audi</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="child-2" fxFlex="1 1 auto">
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </div>
+</div>

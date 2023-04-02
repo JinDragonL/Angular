@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from '../material-ui/material-ui.component';
 
 @Component({
   selector: 'app-advanced-form',
@@ -7,35 +9,61 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./advanced-form.component.scss']
 })
 export class AdvancedFormComponent implements OnInit {
+  
+  constructor(private formBuild: FormBuilder, 
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { 
 
-  constructor(private formBuild: FormBuilder) { }
-  formGroup: FormGroup;
+      console.log(data);
+    }
+
+  formGroup = this.formBuild.group({
+    code: ['', [Validators.required, Validators.minLength(3)]],
+    method: ['', { validators: [Validators.required] }],
+    shipping: [0],
+    products: this.formBuild.array([this.formBuild.group({
+      productName: [''],
+      color: ['#000']
+    })])
+  });
+  
 
   get products() {
     return this.formGroup.controls['products'] as FormArray;
   }
 
-  ngOnInit(): void {
-    // this.formGroup = new FormGroup({
-    //   name: new FormControl('', ),
-    //   products: new FormArray([new FormGroup({
-    //     productName: new FormControl(),
-    //     color: new FormControl('#000')
-    //   })])
-    // });
+  //Strictly Typed Form
+ // support Strongly-type
 
-    this.formGroup = this.formBuild.group({
-      name: ['', []],
-      products: this.formBuild.array([this.formBuild.group({
-        productName: [''],
-        color: ['#000']
-      })])
-    })
-    
+  ngOnInit(): void {
+
+    //this.formGroup.get('code')?.patchValue("AZZ000");
+
+    this.formGroup.patchValue({
+      code: 'VC6666'
+    });
+
+    this.formGroup.setValue({
+      code:'BFFFF',
+      method: 'cash',
+      shipping: 100,
+      products: [ 
+        {
+          color: '#FFF',
+          productName: 'ABC'
+        }
+      ]
+    });
+
+
+    const code = this.formGroup.value.code;
+
+    //this.formGroup.get('code')?.disable();
+
+    this.formGroup.controls.code.disable();
 
   }
 
-  onAddColor() {
+  onAddColor(): void {
     this.products.push(new FormGroup({
         productName: new FormControl(),
         color: new FormControl('#000')
@@ -43,6 +71,9 @@ export class AdvancedFormComponent implements OnInit {
 
   }
 
+  removeColor(index: number): void {
+    this.formGroup.controls.products.removeAt(index);
+  }
 
   onSubmit() {
     console.log(this.formGroup);
@@ -93,8 +124,6 @@ export class AdvancedFormComponent implements OnInit {
 
     typeof obj              // 'object'
     obj instanceof Object   //true
-
-
 
   }
 

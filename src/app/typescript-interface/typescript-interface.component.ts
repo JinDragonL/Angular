@@ -15,6 +15,7 @@ export class TypescriptInterfaceComponent implements OnInit, Payment {
               private _animeCharacterServices: AnimeCharacter[]) { }
   
   key: string;
+
   getPaymentByMethod(method: string): void {
     console.log('Pay by bank');
   }
@@ -24,6 +25,10 @@ export class TypescriptInterfaceComponent implements OnInit, Payment {
   mobilePhone: Phone = { color: 'red', label: 'Oppo', manufacturedYear: 2010 };
 
   ngOnInit(): void {
+
+    const a = null;
+
+    console.log(!!a);
 
     const phone = new CellPhone("Apple", "black", 2017);
 

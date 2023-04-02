@@ -27,7 +27,7 @@ export class SlidebarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-   this._homeService._behaviorSubject.pipe(takeUntil(this._unSubject$))
+   this._homeService._behaviorSubject.pipe(takeUntil(this._unSubject$)) //rxjs
                                      .subscribe(data => {
                                           this.message = data;
                                         });

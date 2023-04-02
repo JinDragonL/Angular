@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
@@ -17,7 +17,6 @@ import { CheckAnimalPipe } from './pipes/check.animal.pipe';
 import { ContactComponent } from './contact/contact.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { AuthguardService } from 'src/services/authguard.service';
-import { InterceptorRequest } from 'src/services/interceptor.request';
 import { ComponentSystemDirective } from './directives/component.system.directive';
 import { ComponentSiteDirective } from './directives/component.site.directive';
 import { ObservableComponent } from './observable/observable.component';
@@ -25,19 +24,14 @@ import { Observable2Component } from './observable2/observable2.component';
 import { ScrollRxjsComponent } from './scroll-rxjs/scroll-rxjs.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { GetProductResolver } from 'src/services/handle-get-product-resolver';
+import { TypescriptComponent } from './typescript/typescript.component';
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { ChangeDetectionChild1Component } from './change-detection-strategy/change-detection-child1/change-detection-child1.component';
 import { ChangeDetectionChild2Component } from './change-detection-strategy/change-detection-child2/change-detection-child2.component';
+import { SubCateogoryComponent } from './category/sub-cateogory/sub-cateogory.component';
+import { MaterialUiComponent } from './material-ui/material-ui.component';
 import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { TypescriptComponent } from './typescript/typescript.component';
-import { TypescriptInterfaceComponent } from './typescript-interface/typescript-interface.component';
-import { PokemonServiceService } from 'src/services/pokemon-service.service';
-import { YugiohServiceService } from 'src/services/yugioh-service.service';
-import { TypescriptClassComponent } from './typescript-class/typescript-class.component';
-import { TypescriptAbstractComponent } from './typescript-abstract/typescript-abstract.component';
-
+import { ControlMaterialModule } from 'src/share/control.material';
 
 @NgModule({
   declarations: [
@@ -56,14 +50,13 @@ import { TypescriptAbstractComponent } from './typescript-abstract/typescript-ab
     Observable2Component,
     ScrollRxjsComponent,
     CategoryDetailComponent,
+    TypescriptComponent,
     ChangeDetectionStrategyComponent,
     ChangeDetectionChild1Component,
     ChangeDetectionChild2Component,
-    AdvancedFormComponent,
-    TypescriptComponent,
-    TypescriptInterfaceComponent,
-    TypescriptClassComponent,
-    TypescriptAbstractComponent
+    SubCateogoryComponent,
+    MaterialUiComponent,
+    AdvancedFormComponent
   ],
   imports: [
     CommonModule,
@@ -71,30 +64,19 @@ import { TypescriptAbstractComponent } from './typescript-abstract/typescript-ab
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRouting,
     ReactiveFormsModule,
-    InputsModule,
-    LabelModule
+    AppRouting,
+    BrowserAnimationsModule,
+    ControlMaterialModule,
   ],
   providers: [
     CategoryService, 
     HomeService, 
     AuthguardService,
-    GetProductResolver,
-    {
-      provide: 'AnimeCharacter',
-      multi: true,
-      useClass: PokemonServiceService
-    },
-    {
-      provide: 'AnimeCharacter',
-      multi: true,
-      useClass: YugiohServiceService
-    }
+    GetProductResolver
     //{ provide: HTTP_INTERCEPTORS, useClass: InterceptorRequest, multi: true }
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }
 

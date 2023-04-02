@@ -9,6 +9,7 @@ import { CreateUpdateCategoryComponent } from "./category/create-update-category
 import { ChangeDetectionStrategyComponent } from "./change-detection-strategy/change-detection-strategy.component";
 import { ContactComponent } from "./contact/contact.component";
 import { HomeComponent } from "./home/home.component";
+import { MaterialUiComponent } from "./material-ui/material-ui.component";
 import { ObservableComponent } from "./observable/observable.component";
 import { Observable2Component } from "./observable2/observable2.component";
 import { ProductComponent } from "./product/product.component";
@@ -46,6 +47,7 @@ const appRouter: Routes = [
     { path: 'typescript', component: TypescriptComponent},
     { path: 'typescript2', component: TypescriptInterfaceComponent},
     { path: 'typescript-class', component: TypescriptClassComponent},
+    { path: 'material', component: MaterialUiComponent},
     { path: '*', component: HomeComponent},
 ]
 

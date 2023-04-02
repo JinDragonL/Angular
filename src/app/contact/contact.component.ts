@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-
+    console.log(this.templateContact);
    
 
   }
