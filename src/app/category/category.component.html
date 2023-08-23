@@ -7,15 +7,25 @@
       <th><a routerLink="/category/createupdate"><i class="bi bi-plus-lg btn-action"></i></a></th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let item of categories"> 
-      <td><a [routerLink]="['/category/detail', item.Id]">{{item.Name}}</a></td>
-      <td>{{item.Description}}</td>
+  <tbody *ngIf="categories$ | async as categories else nodata">
+    <tr *ngFor="let category of categories" > 
+      <td><a [routerLink]="['/category/detail', category.Id]">{{category.Name}}</a></td>
+      <td>{{category.Description}}</td>
       <td  style="width:70px;">
-        <a [routerLink]="['/category/createupdate', item.Id]"><i class="bi bi-pencil-fill btn-action"></i></a> &nbsp;
+        <a [routerLink]="['/category/createupdate', category.Id]"><i class="bi bi-pencil-fill btn-action"></i></a> &nbsp;
         <a><i class="bi bi-x-lg btn-action"></i></a> 
       </td>
     </tr>
   </tbody>
+  <ng-template #nodata>
+    <tbody >
+      <tr>
+        <td>No data</td>
+      </tr>
+    </tbody>
+  </ng-template>
+  <ul>
+    <li *ngFor="let category of newCategories$ | async">{{category.Name}}</li>
+  </ul>
 </table>
 

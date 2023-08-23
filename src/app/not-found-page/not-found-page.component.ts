@@ -10,6 +10,11 @@ export class NotFoundPageComponent implements OnInit {
 
   constructor() { }
 
+  student = {
+    name: 'A',
+    age: 100
+  }
+
   ngOnInit() {
   }
 

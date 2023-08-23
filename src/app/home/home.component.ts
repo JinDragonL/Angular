@@ -1,4 +1,5 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, 
+        Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { HomeService } from 'src/services/home.service';
 
@@ -13,14 +14,28 @@ export class HomeComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
   constructor(private _homeService: HomeService) { }
 
   name:string;
+  
   isShow:boolean = false;
+  
   description:string;
+  
   arr = [1,2,3,4,5];
+  
   count:number = 1;
-  objTest = { name: "abc", id: 1};
+
+  objTest = { 
+    name: "abc this is descriptions for test", 
+    id: 1 
+  };
 
 
+  formatDate(){
 
+  }
+
+  /***
+   * Event On Chagne 
+   */
   ngOnChanges(changes: SimpleChanges): void {
     console.log("ngOnChanges", changes);
   }
@@ -35,11 +50,12 @@ export class HomeComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
 
     arrNumbers$.subscribe(console.log);
 
+    this._homeService.sendMessage('this is message test');
+
   }
 
   ngDoCheck(): void {
     console.log("ngDoCheck");
-
   }
 
   ngAfterContentInit(): void {

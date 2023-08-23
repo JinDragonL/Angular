@@ -16,6 +16,11 @@ export class MaterialUiComponent implements OnInit {
   
   constructor(public dialog: MatDialog) { }
 
+  student = {
+    name: 'A',
+    age: 100
+  }
+
   ngOnInit(): void {
   }
 

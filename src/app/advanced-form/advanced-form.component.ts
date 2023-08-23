@@ -6,15 +6,18 @@ import { DialogData } from '../material-ui/material-ui.component';
 @Component({
   selector: 'app-advanced-form',
   templateUrl: './advanced-form.component.html',
-  styleUrls: ['./advanced-form.component.scss']
+  styleUrls: ['./advanced-form.component.scss'],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} }
+  ]
 })
 export class AdvancedFormComponent implements OnInit {
-  
-  constructor(private formBuild: FormBuilder, 
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { 
 
-      console.log(data);
-    }
+  constructor(private formBuild: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+
+   // console.log(data);
+  }
 
   formGroup = this.formBuild.group({
     code: ['', [Validators.required, Validators.minLength(3)]],
@@ -25,14 +28,14 @@ export class AdvancedFormComponent implements OnInit {
       color: ['#000']
     })])
   });
-  
+
 
   get products() {
     return this.formGroup.controls['products'] as FormArray;
   }
 
   //Strictly Typed Form
- // support Strongly-type
+  // support Strongly-type
 
   ngOnInit(): void {
 
@@ -43,10 +46,10 @@ export class AdvancedFormComponent implements OnInit {
     });
 
     this.formGroup.setValue({
-      code:'BFFFF',
+      code: 'BFFFF',
       method: 'cash',
       shipping: 100,
-      products: [ 
+      products: [
         {
           color: '#FFF',
           productName: 'ABC'
@@ -65,8 +68,8 @@ export class AdvancedFormComponent implements OnInit {
 
   onAddColor(): void {
     this.products.push(new FormGroup({
-        productName: new FormControl(),
-        color: new FormControl('#000')
+      productName: new FormControl(),
+      color: new FormControl('#000')
     }));
 
   }
@@ -91,20 +94,20 @@ export class AdvancedFormComponent implements OnInit {
 
     const obj = {
       id: 12,
-      name: 'Robot', 
+      name: 'Robot',
       price: {
         sale: 100,
         cost: 90
       }
     }
 
-    const { 
-      id, 
-      price: 
+    const {
+      id,
+      price:
       {
-        sale, 
+        sale,
         cost
-      }, 
+      },
       ...rest // imply { name: 'Robot'}, is rest part of object
     } = obj;
 
@@ -116,7 +119,7 @@ export class AdvancedFormComponent implements OnInit {
     Object.keys(obj) //return all property ['id', 'name', 'price']
 
     Object.assign({}, obj) // copy and merge into { }
-    const newObj = {...obj} //new way is shorthanding to write code
+    const newObj = { ...obj } //new way is shorthanding to write code
     //...obj is to merge new object of OBJ
 
     const newDeepClone = JSON.stringify(obj);

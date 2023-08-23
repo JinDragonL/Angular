@@ -11,10 +11,14 @@ export class HomeService {
 
   constructor() { }
 
+  /**
+   *
+   * Event to send message to another component
+   * @param {string} msg
+   * @memberof HomeService
+   */
   public sendMessage(msg: string) {
     this._behaviorSubject.next(msg);
   }
-
-
 
 }

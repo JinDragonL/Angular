@@ -16,6 +16,7 @@ import { ProductComponent } from "./product/product.component";
 import { TypescriptClassComponent } from "./typescript-class/typescript-class.component";
 import { TypescriptInterfaceComponent } from "./typescript-interface/typescript-interface.component";
 import { TypescriptComponent } from "./typescript/typescript.component";
+import { TypescriptAbstractComponent } from "./typescript-abstract/typescript-abstract.component";
 
 const appRouter: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -48,6 +49,12 @@ const appRouter: Routes = [
     { path: 'typescript2', component: TypescriptInterfaceComponent},
     { path: 'typescript-class', component: TypescriptClassComponent},
     { path: 'material', component: MaterialUiComponent},
+    { path: 'typescript', component: TypescriptComponent},
+    { path: 'typescript', component: TypescriptComponent},
+    { path: 'typescript-class', component: TypescriptComponent},
+    { path: 'typescript-abstract', component: TypescriptAbstractComponent},
+    { path: 'typescript-interface', component: TypescriptInterfaceComponent},
+    { path: 'auth', component: AuthenticationComponent},
     { path: '*', component: HomeComponent},
 ]
 

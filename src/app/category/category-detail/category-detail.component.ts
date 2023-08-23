@@ -23,6 +23,8 @@ export class CategoryDetailComponent implements OnInit {
       this.products = data;
     })
 
+    
+
   }
 
   ngOnInit(): void {

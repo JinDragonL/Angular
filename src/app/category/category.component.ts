@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/services/product.service';
 import { CategoryModel } from '../../models/CategoryModel';
 import { CategoryService } from '../../services/category.service.service';
+import { Observable,  debounceTime,  delay,  map, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-category',
@@ -10,22 +10,27 @@ import { CategoryService } from '../../services/category.service.service';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor(private _categoryService: CategoryService,
-            private _productService: ProductService) { }
+  constructor(private categoryService: CategoryService) { }
 
-  categories: CategoryModel[] = [];
+  categories$: Observable<CategoryModel[]>;
+  newCategories$: Observable<any>;
 
   ngOnInit() {
     this.getList();
-
-
-    //this._productService.getByCategoryId(1).subscribe(console.log);
   }
 
-  getList(){
-    this._categoryService.getList().subscribe((data) => {
-      this.categories = data as CategoryModel[];
-    });
+  getList() {
+
+    this.categories$ = this.categoryService.getList().pipe(
+      shareReplay(1),
+    );
+
+    this.newCategories$ = this.categories$.pipe(
+      map(item => item.filter(x => x.Id % 2 === 0))
+    );
+
   }
 
 }
+
+// Async Pipe

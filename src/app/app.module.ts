@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +32,8 @@ import { SubCateogoryComponent } from './category/sub-cateogory/sub-cateogory.co
 import { MaterialUiComponent } from './material-ui/material-ui.component';
 import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
 import { ControlMaterialModule } from 'src/share/control.material';
+import { LoadingBarComponent } from 'src/share/components/loading-bar/loading-bar.component';
+import { LoadingBarInterceptor } from 'src/helper/loading-bar.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { ControlMaterialModule } from 'src/share/control.material';
     ChangeDetectionChild2Component,
     SubCateogoryComponent,
     MaterialUiComponent,
-    AdvancedFormComponent
+    AdvancedFormComponent,
+    LoadingBarComponent
   ],
   imports: [
     CommonModule,
@@ -73,8 +76,9 @@ import { ControlMaterialModule } from 'src/share/control.material';
     CategoryService, 
     HomeService, 
     AuthguardService,
-    GetProductResolver
+    GetProductResolver,
     //{ provide: HTTP_INTERCEPTORS, useClass: InterceptorRequest, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingBarInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
