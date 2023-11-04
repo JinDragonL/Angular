@@ -9,7 +9,7 @@ import { HomeService } from 'src/services/home.service';
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit, OnChanges, OnDestroy, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
+export class HomeComponent implements OnInit, OnDestroy { //OnChanges, , DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked 
 
   constructor(private _homeService: HomeService) { }
 
@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
   /***
    * Event On Chagne 
    */
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("ngOnChanges", changes);
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log("ngOnChanges", changes);
+  // }
 
   ngOnInit() {
 
@@ -54,26 +54,26 @@ export class HomeComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
 
   }
 
-  ngDoCheck(): void {
-    console.log("ngDoCheck");
-  }
+  // ngDoCheck(): void {
+  //   console.log("ngDoCheck");
+  // }
 
-  ngAfterContentInit(): void {
+  // ngAfterContentInit(): void {
 
-    console.log("ngAfterContentInit");
-  } 
+  //   console.log("ngAfterContentInit");
+  // } 
   
-  ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked");
-  }
+  // ngAfterContentChecked(): void {
+  //   console.log("ngAfterContentChecked");
+  // }
 
-  ngAfterViewInit(): void {
-    console.log("ngAfterViewInit");
-  }
+  // ngAfterViewInit(): void {
+  //   console.log("ngAfterViewInit");
+  // }
 
-  ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked");
-  }
+  // ngAfterViewChecked(): void {
+  //   console.log("ngAfterViewChecked");
+  // }
 
   public onSendMsg(){
     //this._homeService.sendMessage("I am Robot");

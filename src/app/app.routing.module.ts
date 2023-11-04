@@ -17,6 +17,7 @@ import { TypescriptClassComponent } from "./typescript-class/typescript-class.co
 import { TypescriptInterfaceComponent } from "./typescript-interface/typescript-interface.component";
 import { TypescriptComponent } from "./typescript/typescript.component";
 import { TypescriptAbstractComponent } from "./typescript-abstract/typescript-abstract.component";
+import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 
 const appRouter: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -54,6 +55,7 @@ const appRouter: Routes = [
     { path: 'typescript-class', component: TypescriptComponent},
     { path: 'typescript-abstract', component: TypescriptAbstractComponent},
     { path: 'typescript-interface', component: TypescriptInterfaceComponent},
+    { path: 'reset-password', component: ResetPasswordComponent},
     { path: 'auth', component: AuthenticationComponent},
     { path: '*', component: HomeComponent},
 ]

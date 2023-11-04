@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-   this.categories$ = this._serviceCategory.getComboData();
+   //this.categories$ = this._serviceCategory.getComboData();
 
     // const test$ = of([0,1,2,3,4]);
 

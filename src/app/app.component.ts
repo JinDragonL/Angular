@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { LoadingBarService } from './services/loading-bar.service';
 import { AuthenticationService } from './services/authentication.service';
+import { Subscription } from 'rxjs';
+import { TokenHandlerService } from 'src/services/token.handler.service';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +16,10 @@ export class AppComponent {
   isShowSubMenu: boolean = false;
   isShowSubOtherMenu: boolean = false;
   isShowSlider: boolean = false;
-
   protected authenticationService = inject(AuthenticationService);
+  private tokenHandlerService = inject(TokenHandlerService);
 
-  constructor() {
-    
-  }
-
-  public onShowSlider(){
-    this.isShowSlider = !this.isShowSlider;
+  constructor(private translocoService: TranslocoService) {
   }
 
   showSubMenu() {
@@ -38,4 +35,8 @@ export class AppComponent {
     this.authenticationService.logout();
   }
 
+  onChangeLanguage(language: string) {
+    this.translocoService.setActiveLang(language);
+  }
 }
+

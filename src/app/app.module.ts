@@ -34,6 +34,10 @@ import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
 import { ControlMaterialModule } from 'src/share/control.material';
 import { LoadingBarComponent } from 'src/share/components/loading-bar/loading-bar.component';
 import { LoadingBarInterceptor } from 'src/helper/loading-bar.interceptor';
+import { InterceptorRequest } from 'src/services/interceptor.request';
+import { ExpiredTokenPopupComponent } from './expired-token-popup/expired-token-popup.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { LocalizationModule } from './translocal.module';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,9 @@ import { LoadingBarInterceptor } from 'src/helper/loading-bar.interceptor';
     SubCateogoryComponent,
     MaterialUiComponent,
     AdvancedFormComponent,
-    LoadingBarComponent
+    LoadingBarComponent,
+    ExpiredTokenPopupComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
@@ -71,13 +77,14 @@ import { LoadingBarInterceptor } from 'src/helper/loading-bar.interceptor';
     AppRouting,
     BrowserAnimationsModule,
     ControlMaterialModule,
+    LocalizationModule
   ],
   providers: [
     CategoryService, 
     HomeService, 
     AuthguardService,
     GetProductResolver,
-    //{ provide: HTTP_INTERCEPTORS, useClass: InterceptorRequest, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorRequest, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingBarInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

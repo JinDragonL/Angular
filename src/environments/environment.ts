@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   //baseApi: "https://localhost:44346/"
-  baseApi: "https://localhost:44312/"
+  baseApi: "https://localhost:44312/",
+  expiredTokenTime: 30
   
 };
 
