@@ -14,10 +14,14 @@
 
 <p>{{ "" | checkAnimal:"D" }}</p>
 
+<h3>Ngx Translate</h3>
+<p>{{ 'name' | translate: {name} }}</p>
+<p [innerHTML]="skill"></p>
+
 <select>
     <option *ngFor="let item of categories$ | async">{{ item.Name }}</option><br>
 </select>
 
-<button type="buttom" (click)="onGetCategories()" id="btn-onget">Get Category</button> <br><br>
+<button type="button" (click)="onGetCategories()" id="btn-onget">Get Category</button> <br><br>
 
 <input type="text" id="txt-input">

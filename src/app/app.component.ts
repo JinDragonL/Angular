@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
-import { Subscription } from 'rxjs';
 import { TokenHandlerService } from 'src/services/token.handler.service';
-import { TranslocoService } from '@ngneat/transloco';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,11 @@ export class AppComponent {
   protected authenticationService = inject(AuthenticationService);
   private tokenHandlerService = inject(TokenHandlerService);
 
-  constructor(private translocoService: TranslocoService) {
+  private translateService = inject(TranslateService);
+
+  constructor() {
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en')
   }
 
   showSubMenu() {
@@ -30,13 +33,17 @@ export class AppComponent {
     this.isShowSubOtherMenu = !this.isShowSubOtherMenu;
   }
 
-
   logOut(){
     this.authenticationService.logout();
   }
 
-  onChangeLanguage(language: string) {
-    this.translocoService.setActiveLang(language);
+  switchLanguage(language: string) {
+   this.translateService.use(language);
   }
 }
 
+
+//i18n - i18net
+//ngx-translate/core
+//transloco
+//..

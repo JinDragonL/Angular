@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
@@ -37,7 +37,8 @@ import { LoadingBarInterceptor } from 'src/helper/loading-bar.interceptor';
 import { InterceptorRequest } from 'src/services/interceptor.request';
 import { ExpiredTokenPopupComponent } from './expired-token-popup/expired-token-popup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { LocalizationModule } from './translocal.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateCoreModule } from './translate.module';
 
 @NgModule({
   declarations: [
@@ -76,8 +77,8 @@ import { LocalizationModule } from './translocal.module';
     ReactiveFormsModule,
     AppRouting,
     BrowserAnimationsModule,
-    ControlMaterialModule,
-    LocalizationModule
+    ControlMaterialModule, 
+    TranslateCoreModule
   ],
   providers: [
     CategoryService, 

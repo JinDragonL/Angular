@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { debounce, debounceTime, fromEvent, map, Observable, of, switchMap, tap, concatMap, exhaustMap} from 'rxjs';
-import { delay, distinctUntilChanged, mergeMap, take } from 'rxjs/operators';
+import { Component, OnInit, inject } from '@angular/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { fromEvent, Observable, switchMap, concatMap} from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { CategoryService } from 'src/services/category.service.service';
 
 @Component({
@@ -10,8 +11,17 @@ import { CategoryService } from 'src/services/category.service.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private _serviceCategory: CategoryService) { }
+  private translateService = inject(TranslateService);
+  skill: string;
+
+  constructor(private _serviceCategory: CategoryService) {
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.translateService.get('skill.major').subscribe(data => this.skill = data);
+    });
+  }
   
+  name: string = 'Robert';
+
   public message: string = "I am Robot";
 
   public number:number = 1500;

@@ -1,4 +1,7 @@
 {
-    "name": "I Am Robot",
-    "contact": "Contact"
+    "name": "I Am {{name}}",
+    "contact": "Contact",
+    "skill": {
+        "major": "Run fast! <br/> more than people"
+    }
 }

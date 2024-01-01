@@ -1,4 +1,7 @@
 {
-    "name": "Tôi là Robot",
-    "contact": "Liên Hệ"
+    "name": "Tôi là {{name}}",
+    "contact": "Liên Hệ",
+    "skill": {
+        "major": "Chạy nhanh <br /> hơn con người!"
+    }
 }
